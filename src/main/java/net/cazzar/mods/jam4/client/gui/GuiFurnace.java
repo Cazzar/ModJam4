@@ -1,7 +1,7 @@
 package net.cazzar.mods.jam4.client.gui;
 
-import net.cazzar.mods.jam4.tile.TileFurnace;
 import net.cazzar.mods.jam4.gui.container.ContainerFurnace;
+import net.cazzar.mods.jam4.tile.TileFurnace;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -25,6 +25,8 @@ public class GuiFurnace extends GuiContainer {
         final int yStart = (height - this.ySize) / 2;
         drawTexturedModalRect(xStart, yStart, 0, 0, xSize, ySize);
 
+        int power = (int) (tile.power / tile.maxPower() * 64);
 
+        drawTexturedModalRect(xStart + 6, yStart + 6 + (64 - power), 176, 31, 13, power);
     }
 }

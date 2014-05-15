@@ -1,5 +1,6 @@
 package net.cazzar.mods.jam4.tile;
 
+import net.cazzar.mods.jam4.api.IPowerUser;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
@@ -7,14 +8,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileFurnace extends TileEntity implements IInventory, ISidedInventory {
+public class TileFurnace extends TileEntity implements IInventory, ISidedInventory, IPowerUser {
     private int burnTime = 200;
     public ItemStack[] items;
+    public double power;
 
     public TileFurnace() {
         this.items = new ItemStack[getSizeInventory()];
     }
 
+    public double maxPower() {
+        return 2000;
+    }
 
     @Override
     public int[] getAccessibleSlotsFromSide(int var1) {
@@ -89,5 +94,28 @@ public class TileFurnace extends TileEntity implements IInventory, ISidedInvento
     @Override
     public boolean isItemValidForSlot(int var1, ItemStack var2) {
         return FurnaceRecipes.smelting().getSmeltingList().containsKey(var2.getItem()) && var1 == 0;
+    }
+
+    @Override
+    public boolean canAccept() {
+        return power <= maxPower();
+    }
+
+    @Override
+    public double needsPower() {
+        return maxPower() - power;
+    }
+
+    @Override
+    public double acceptPower(double amount) {
+        final double v = maxPower() - power;
+
+        if (amount > v) {
+            power += amount - v;
+            return v;
+        }
+
+        power += amount;
+        return amount;
     }
 }
