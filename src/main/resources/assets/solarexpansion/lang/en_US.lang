@@ -1,2 +1,3 @@
 item.linker.name=Linker
-item.solarGenerator.name=Generator
+item.solarGenerator.name=Solar Generator
+errmsg.solarExpansion.clickGenerator=Please Click on a generator

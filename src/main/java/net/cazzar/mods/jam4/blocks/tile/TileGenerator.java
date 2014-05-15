@@ -37,6 +37,11 @@ public abstract class TileGenerator extends TileEntity implements IPowerProvider
         return needed;
     }
 
+    @Override
+    public boolean addMachine(BlockCoord coord) {
+        return linkedMachnes.add(coord);
+    }
+
     public void distributePower() {
         final Iterator<BlockCoord> iterator = linkedMachnes.iterator();
         while (iterator.hasNext()) {
@@ -46,6 +51,12 @@ public abstract class TileGenerator extends TileEntity implements IPowerProvider
             //vaildate entities;
             if (tileEntity == null || !(tileEntity instanceof IPowerUser))
                 iterator.remove();
+
+            IPowerUser user = (IPowerUser) tileEntity;
+            //shuddup intelliJ i already checked.
+            assert user != null;
+
+            power -= user.acceptPower(power);
         }
     }
 
