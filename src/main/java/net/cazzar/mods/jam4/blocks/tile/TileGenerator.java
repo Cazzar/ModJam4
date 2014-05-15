@@ -66,8 +66,5 @@ public abstract class TileGenerator extends TileEntity implements IPowerProvider
             power += getMaxGeneratonAmount();
 
         distributePower();
-
-        //debug code.
-        //System.out.println(power);
     }
 }
