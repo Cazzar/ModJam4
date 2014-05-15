@@ -2,6 +2,7 @@ package net.cazzar.mods.jam4.proxy;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.cazzar.mods.jam4.blocks.BlockGenerator;
+import net.cazzar.mods.jam4.blocks.tile.TileBattery;
 import net.cazzar.mods.jam4.items.ItemLinker;
 
 public class CommonProxy {
@@ -11,6 +12,8 @@ public class CommonProxy {
     public void initBlocks() {
         blockGenerator = new BlockGenerator();
         GameRegistry.registerBlock(blockGenerator, "generator");
+
+        GameRegistry.registerTileEntity(TileBattery.class, "battery");
     }
 
     public void initItems() {
