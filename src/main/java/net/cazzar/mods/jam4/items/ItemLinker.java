@@ -15,6 +15,7 @@ public class ItemLinker extends Item {
     public ItemLinker() {
         setUnlocalizedName("linker");
         setMaxStackSize(1);
+        setTextureName("solarexpansion:linker");
     }
 
     @Override
@@ -38,7 +39,10 @@ public class ItemLinker extends Item {
                 System.out.println(dy);
 
                 final double distanceFrom = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2) + Math.pow(dz, 2));
-                System.out.println(distanceFrom);
+                if (distanceFrom > 10) {
+                    player.addChatComponentMessage(new ChatComponentTranslation("errmsg.solarExpansion.tooLong"));
+                    return true;
+                }
 
                 generator.addMachine(new BlockCoord(x, y, z));
             }

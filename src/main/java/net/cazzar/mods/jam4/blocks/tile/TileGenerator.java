@@ -9,7 +9,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 public abstract class TileGenerator extends TileEntity implements IPowerProvider {
-    LinkedList<BlockCoord> linkedMachnes = new LinkedList<BlockCoord>();
+    LinkedList<BlockCoord> linkedMachines = new LinkedList<BlockCoord>();
+    double maxPower = 200;
     double power = 0;
 
     @Override
@@ -22,9 +23,8 @@ public abstract class TileGenerator extends TileEntity implements IPowerProvider
         return power;
     }
 
-    public double getMaxGenerationAmount() {
-        return 1.0;
-    }
+    public abstract double getMaxGenerationAmount();
+    public abstract double getTransferRate();
 
     @Override
     public double drainPower(double needed) {
@@ -39,11 +39,11 @@ public abstract class TileGenerator extends TileEntity implements IPowerProvider
 
     @Override
     public boolean addMachine(BlockCoord coord) {
-        return linkedMachnes.add(coord);
+        return linkedMachines.add(coord);
     }
 
     public void distributePower() {
-        final Iterator<BlockCoord> iterator = linkedMachnes.iterator();
+        final Iterator<BlockCoord> iterator = linkedMachines.iterator();
         while (iterator.hasNext()) {
             final BlockCoord next = iterator.next();
             final TileEntity tileEntity = worldObj.getTileEntity(next.getX(), next.getY(), next.getZ());
@@ -53,14 +53,12 @@ public abstract class TileGenerator extends TileEntity implements IPowerProvider
                 iterator.remove();
 
 
-
             int dx = xCoord - next.getX();
             int dy = yCoord - next.getY();
             int dz = zCoord - next.getZ();
 
             final double distanceFrom = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2) + Math.pow(dz, 2));
-            
-            System.out.println(distanceFrom);
+
             if (distanceFrom > 10) {
                 iterator.remove();
                 return;
@@ -69,15 +67,24 @@ public abstract class TileGenerator extends TileEntity implements IPowerProvider
             IPowerUser user = (IPowerUser) tileEntity;
             //shuddup intelliJ i already checked.
             if (user != null) {
-                power -= user.acceptPower(power);
+                final double transferRate = getTransferRate();
+                if (power < transferRate)
+                    power -= user.acceptPower(power);
+                else power -= user.acceptPower(transferRate);
+
+//                System.out.println("Transferring power.");
             }
         }
     }
 
     @Override
     public void updateEntity() {
-        if (worldObj.isDaytime())
-            power += getMaxGenerationAmount();
+        if (worldObj.isDaytime()) {
+
+            final double maxGenerationAmount = getMaxGenerationAmount();
+            if (power + maxGenerationAmount > maxPower) power = maxPower;
+            else power += maxGenerationAmount;
+        }
 
         distributePower();
     }
