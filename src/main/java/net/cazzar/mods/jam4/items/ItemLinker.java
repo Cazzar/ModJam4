@@ -20,6 +20,8 @@ public class ItemLinker extends Item {
 
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int meta, float hitx, float hity, float hitz) {
+        if (world.isRemote) return true;
+
         if (stack.getTagCompound() == null) {
             stack.setTagCompound(new NBTTagCompound());
         }

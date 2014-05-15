@@ -19,7 +19,8 @@ public class GuiFurnace extends GuiContainer {
     protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {
         glColor4f(1f, 1f, 1f, 1f);
         mc.renderEngine.bindTexture(location);
-        final int xSize = (width - this.xSize) / 2;
-        final int ySize = (height - this.ySize) / 2;
+        final int xStart = (width - this.xSize) / 2;
+        final int yStart = (height - this.ySize) / 2;
+        drawTexturedModalRect(xStart, yStart, 0, 0, xSize, ySize);
     }
 }

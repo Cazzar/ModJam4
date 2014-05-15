@@ -8,6 +8,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileFurnace extends TileEntity implements IInventory, ISidedInventory {
+    private int burnTime = 200;
     public ItemStack[] items;
 
     public TileFurnace() {

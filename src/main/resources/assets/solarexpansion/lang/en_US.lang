@@ -1,5 +1,6 @@
 item.linker.name=Linker
-item.solarGenerator.name=Solar Generator
+tile.solarGenerator.name=Solar Generator
+tile.battery.name=Battery
 errmsg.solarExpansion.clickGenerator=Please Click on a generator
 errmsg.solarExpansion.tooLong=Machines too far apart (max 10)
 info.solarExpansion.batteryLevel=Battery Level: %.2f
