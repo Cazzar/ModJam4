@@ -5,6 +5,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
 
 public class BlockBattery extends BlockContainer {
@@ -14,9 +15,9 @@ public class BlockBattery extends BlockContainer {
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
         final TileEntity tileEntity = world.getTileEntity(x, y, z);
-        System.out.println(((TileBattery) tileEntity).power);
+        player.addChatComponentMessage(new ChatComponentTranslation("info.solarExpansion.batteryLevel", ((TileBattery) tileEntity).power));
         return true;
     }
 

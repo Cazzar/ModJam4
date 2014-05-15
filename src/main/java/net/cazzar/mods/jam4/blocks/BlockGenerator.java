@@ -20,6 +20,6 @@ public class BlockGenerator extends BlockContainer {
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float hitX, float hitY, float hitZ) {
-                return false;
+        return false;
     }
 }
