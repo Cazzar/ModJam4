@@ -22,7 +22,7 @@ public abstract class TileGenerator extends TileEntity implements IPowerProvider
         return power;
     }
 
-    public double getMaxGeneratonAmount() {
+    public double getMaxGenerationAmount() {
         return 1.0;
     }
 
@@ -52,6 +52,20 @@ public abstract class TileGenerator extends TileEntity implements IPowerProvider
             if (tileEntity == null || !(tileEntity instanceof IPowerUser))
                 iterator.remove();
 
+
+
+            int dx = xCoord - next.getX();
+            int dy = yCoord - next.getY();
+            int dz = zCoord - next.getZ();
+
+            final double distanceFrom = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2) + Math.pow(dz, 2));
+            
+            System.out.println(distanceFrom);
+            if (distanceFrom > 10) {
+                iterator.remove();
+                return;
+            }
+
             IPowerUser user = (IPowerUser) tileEntity;
             //shuddup intelliJ i already checked.
             if (user != null) {
@@ -63,7 +77,7 @@ public abstract class TileGenerator extends TileEntity implements IPowerProvider
     @Override
     public void updateEntity() {
         if (worldObj.isDaytime())
-            power += getMaxGeneratonAmount();
+            power += getMaxGenerationAmount();
 
         distributePower();
     }
