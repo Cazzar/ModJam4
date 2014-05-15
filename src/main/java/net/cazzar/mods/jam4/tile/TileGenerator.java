@@ -68,9 +68,10 @@ public abstract class TileGenerator extends TileEntity implements IPowerProvider
             //shuddup intelliJ i already checked.
             if (user != null) {
                 final double transferRate = getTransferRate();
-                if (power < transferRate)
-                    power -= user.acceptPower(power);
-                else power -= user.acceptPower(transferRate);
+//                if (power < transferRate)
+//                    power -= user.acceptPower(power);
+//                else power -= user.acceptPower(transferRate);
+                drainPower(user.acceptPower(power));
 
 //                System.out.println("Transferring power.");
             }

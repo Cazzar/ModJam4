@@ -2,19 +2,44 @@ package net.cazzar.mods.jam4.tile;
 
 import net.cazzar.mods.jam4.api.IPowerUser;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.nbt.NBTTagCompound;
 
-public class TileFurnace extends TileEntity implements IInventory, ISidedInventory, IPowerUser {
-    private int burnTime = 200;
+public class TileFurnace extends SyncedTileEntity implements IInventory, ISidedInventory, IPowerUser {
+    private final static int burnTime = 200;
     public ItemStack[] items;
     public double power;
 
     public TileFurnace() {
         this.items = new ItemStack[getSizeInventory()];
+    }
+
+    @Override
+    public void readFromNBT(NBTTagCompound tag) {
+        super.readFromNBT(tag);
+        for (int i = 0; i < items.length; i++) {
+            tag.getCompoundTag(String.valueOf(i));
+            new ItemStack(Blocks.brick_block).readFromNBT(tag);
+        }
+
+        power = tag.getDouble("power");
+    }
+
+    @Override
+    public void writeToNBT(NBTTagCompound tag) {
+        super.writeToNBT(tag);
+        for (int i = 0; i < items.length; i++) {
+            NBTTagCompound compound = new NBTTagCompound();
+            if (items[i] != null)
+                items[i].writeToNBT(compound);
+            tag.setTag(String.valueOf(i), compound);
+        }
+
+        tag.setDouble("power", power);
     }
 
     public double maxPower() {
@@ -116,6 +141,8 @@ public class TileFurnace extends TileEntity implements IInventory, ISidedInvento
         }
 
         power += amount;
+        worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+        markDirty();
         return amount;
     }
 }
