@@ -1,6 +1,6 @@
 package net.cazzar.mods.jam4.blocks;
 
-import net.cazzar.mods.jam4.blocks.tile.TileGeneratorImpl;
+import net.cazzar.mods.jam4.tile.TileGeneratorImpl;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;

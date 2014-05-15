@@ -1,4 +1,4 @@
-package net.cazzar.mods.jam4.blocks.tile;
+package net.cazzar.mods.jam4.tile;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;

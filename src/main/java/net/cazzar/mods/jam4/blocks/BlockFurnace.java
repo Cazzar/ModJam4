@@ -1,7 +1,7 @@
 package net.cazzar.mods.jam4.blocks;
 
 import net.cazzar.mods.jam4.SolarExpansion;
-import net.cazzar.mods.jam4.blocks.tile.TileFurnace;
+import net.cazzar.mods.jam4.tile.TileFurnace;
 import net.cazzar.mods.jam4.gui.GuiHandler;
 import net.cazzar.mods.jam4.items.ItemLinker;
 import net.minecraft.block.BlockContainer;

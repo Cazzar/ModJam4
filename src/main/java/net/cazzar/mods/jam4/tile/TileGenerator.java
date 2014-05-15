@@ -1,4 +1,4 @@
-package net.cazzar.mods.jam4.blocks.tile;
+package net.cazzar.mods.jam4.tile;
 
 import net.cazzar.mods.jam4.api.IPowerProvider;
 import net.cazzar.mods.jam4.api.IPowerUser;

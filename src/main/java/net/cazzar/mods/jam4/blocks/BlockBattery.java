@@ -1,6 +1,6 @@
 package net.cazzar.mods.jam4.blocks;
 
-import net.cazzar.mods.jam4.blocks.tile.TileBattery;
+import net.cazzar.mods.jam4.tile.TileBattery;
 import net.cazzar.mods.jam4.items.ItemLinker;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

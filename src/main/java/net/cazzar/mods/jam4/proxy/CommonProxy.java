@@ -6,9 +6,9 @@ import net.cazzar.mods.jam4.SolarExpansion;
 import net.cazzar.mods.jam4.blocks.BlockBattery;
 import net.cazzar.mods.jam4.blocks.BlockFurnace;
 import net.cazzar.mods.jam4.blocks.BlockGenerator;
-import net.cazzar.mods.jam4.blocks.tile.TileBattery;
-import net.cazzar.mods.jam4.blocks.tile.TileFurnace;
-import net.cazzar.mods.jam4.blocks.tile.TileGeneratorImpl;
+import net.cazzar.mods.jam4.tile.TileBattery;
+import net.cazzar.mods.jam4.tile.TileFurnace;
+import net.cazzar.mods.jam4.tile.TileGeneratorImpl;
 import net.cazzar.mods.jam4.gui.GuiHandler;
 import net.cazzar.mods.jam4.items.ItemLinker;
 

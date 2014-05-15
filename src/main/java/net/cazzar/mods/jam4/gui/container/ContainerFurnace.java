@@ -1,6 +1,6 @@
 package net.cazzar.mods.jam4.gui.container;
 
-import net.cazzar.mods.jam4.blocks.tile.TileFurnace;
+import net.cazzar.mods.jam4.tile.TileFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 

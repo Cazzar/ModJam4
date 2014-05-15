@@ -1,7 +1,7 @@
 package net.cazzar.mods.jam4.gui;
 
 import cpw.mods.fml.common.network.IGuiHandler;
-import net.cazzar.mods.jam4.blocks.tile.TileFurnace;
+import net.cazzar.mods.jam4.tile.TileFurnace;
 import net.cazzar.mods.jam4.client.gui.GuiFurnace;
 import net.cazzar.mods.jam4.gui.container.ContainerFurnace;
 import net.minecraft.entity.player.EntityPlayer;

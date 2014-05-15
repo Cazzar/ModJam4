@@ -1,4 +1,4 @@
-package net.cazzar.mods.jam4.blocks.tile;
+package net.cazzar.mods.jam4.tile;
 
 public class TileGeneratorImpl extends TileGenerator {
     @Override
