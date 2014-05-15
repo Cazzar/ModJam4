@@ -33,6 +33,8 @@ public class ItemLinker extends Item {
                 generator.addMachine(new BlockCoord(x, y, z));
             }
 
+            stack.getTagCompound().setBoolean("selecting", false);
+            return true;
         }
 
         if (tileEntity == null || !(tileEntity instanceof IPowerProvider)) {

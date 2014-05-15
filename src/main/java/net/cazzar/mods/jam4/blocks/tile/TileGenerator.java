@@ -54,9 +54,9 @@ public abstract class TileGenerator extends TileEntity implements IPowerProvider
 
             IPowerUser user = (IPowerUser) tileEntity;
             //shuddup intelliJ i already checked.
-            assert user != null;
-
-            power -= user.acceptPower(power);
+            if (user != null) {
+                power -= user.acceptPower(power);
+            }
         }
     }
 
@@ -68,6 +68,6 @@ public abstract class TileGenerator extends TileEntity implements IPowerProvider
         distributePower();
 
         //debug code.
-        System.out.println(power);
+        //System.out.println(power);
     }
 }

@@ -33,6 +33,6 @@ public class TileBattery extends TileEntity implements IPowerUser{
     @Override
     public void updateEntity() {
         super.updateEntity();
-        System.out.println(power);
+        //System.out.println("Battery: " + power);
     }
 }

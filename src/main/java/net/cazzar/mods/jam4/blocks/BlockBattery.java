@@ -7,7 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class BlockBattery extends BlockContainer {
-    protected BlockBattery() {
+    public BlockBattery() {
         super(Material.wood);
         setBlockName("battery");
     }
