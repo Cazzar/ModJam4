@@ -1,4 +1,4 @@
-package net.cazzar.mods.jam4.blocks.util;
+package net.cazzar.mods.jam4.util;
 
 public class BlockCoord {
     final int x;

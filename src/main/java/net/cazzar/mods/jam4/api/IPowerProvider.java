@@ -1,6 +1,6 @@
 package net.cazzar.mods.jam4.api;
 
-import net.cazzar.mods.jam4.blocks.util.BlockCoord;
+import net.cazzar.mods.jam4.util.BlockCoord;
 
 public interface IPowerProvider {
     public boolean canProvidePower();

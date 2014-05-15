@@ -2,7 +2,7 @@ package net.cazzar.mods.jam4.blocks.tile;
 
 import net.cazzar.mods.jam4.api.IPowerProvider;
 import net.cazzar.mods.jam4.api.IPowerUser;
-import net.cazzar.mods.jam4.blocks.util.BlockCoord;
+import net.cazzar.mods.jam4.util.BlockCoord;
 import net.minecraft.tileentity.TileEntity;
 
 import java.util.Iterator;
