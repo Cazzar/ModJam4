@@ -20,6 +20,7 @@ public class SolarExpansion {
     public void preInit(FMLPreInitializationEvent event) {
         proxy.initBlocks();
         proxy.initItems();
+        proxy.initNetwork();
         log = event.getModLog();
     }
 
