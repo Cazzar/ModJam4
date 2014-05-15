@@ -18,6 +18,10 @@ public class ItemLinker extends Item {
             stack.setTagCompound(new NBTTagCompound());
         }
 
+        if (stack.getTagCompound().getBoolean("selecting")) {
+
+        }
+
         stack.getTagCompound().setInteger("x", x);
         stack.getTagCompound().setInteger("y", y);
         stack.getTagCompound().setInteger("z", z);

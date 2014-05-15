@@ -17,6 +17,7 @@ public class SolarExpansion {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         proxy.initBlocks();
+        proxy.initItems();
     }
 
     @Mod.EventHandler
