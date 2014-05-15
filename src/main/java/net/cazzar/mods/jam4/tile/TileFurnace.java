@@ -133,6 +133,7 @@ public class TileFurnace extends SyncedTileEntity implements IInventory, ISidedI
 
     @Override
     public double acceptPower(double amount) {
+        //TODO: Fix my shit
         final double v = maxPower() - power;
 
         if (amount > v) {
