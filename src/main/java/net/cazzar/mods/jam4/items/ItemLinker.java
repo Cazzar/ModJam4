@@ -36,9 +36,6 @@ public class ItemLinker extends Item {
                 int dx = x - stack.getTagCompound().getInteger("x");
                 int dy = y - stack.getTagCompound().getInteger("y");
                 int dz = z - stack.getTagCompound().getInteger("z");
-                System.out.println(dx);
-                System.out.println(dy);
-                System.out.println(dy);
 
                 final double distanceFrom = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2) + Math.pow(dz, 2));
                 if (distanceFrom > 10) {
