@@ -1,6 +1,5 @@
 package net.cazzar.mods.jam4.blocks;
 
-import net.cazzar.mods.jam4.blocks.tile.TileBattery;
 import net.cazzar.mods.jam4.blocks.tile.TileGeneratorImpl;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -21,8 +20,6 @@ public class BlockGenerator extends BlockContainer {
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float hitX, float hitY, float hitZ) {
-        final TileEntity tileEntity = world.getTileEntity(x, y, z);
-        System.out.println(((TileBattery) tileEntity).power);
-        return false;
+                return false;
     }
 }

@@ -30,6 +30,16 @@ public class ItemLinker extends Item {
             IPowerProvider generator = (IPowerProvider) world.getTileEntity(stack.getTagCompound().getInteger("x"), stack.getTagCompound().getInteger("y"), stack.getTagCompound().getInteger("z"));
             if (tileEntity instanceof IPowerUser) {
                 //final IPowerUser entity = (IPowerUser) tileEntity;
+                int dx = x - stack.getTagCompound().getInteger("x");
+                int dy = y - stack.getTagCompound().getInteger("y");
+                int dz = z - stack.getTagCompound().getInteger("z");
+                System.out.println(dx);
+                System.out.println(dy);
+                System.out.println(dy);
+
+                final double distanceFrom = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2) + Math.pow(dz, 2));
+                System.out.println(distanceFrom);
+
                 generator.addMachine(new BlockCoord(x, y, z));
             }
 
